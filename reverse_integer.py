@@ -5,10 +5,7 @@
 
 class Solution(object):
     def reverse_string(self, s: str) -> str:
-        output = ""
-        for i in range(len(s) - 1, -1, -1):
-            output += s[i]
-        return output
+        return s[::-1]
 
     def reverse(self, x: int) -> int:
         """
