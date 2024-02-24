@@ -1,6 +1,19 @@
 # Time to get working solution 16 min 15 sec
+# Time to get more compact solution 23 min 24 sec
+# Time complexity O(n^2), space complexity O(n^2)
 
 class Solution(object):
+    def check_cells(self, cells, board):
+        s = set()
+        for row, col in cells:
+            if ord("1") > ord(board[row][col]) > ord("9") and board[row][col] != ".":
+                return False
+            # duplicate
+            if board[row][col] in s:
+                return False
+            if board[row][col] != ".":
+                s.add(board[row][col])
+        return True
     def isValidSudoku(self, board):
         """
         :type board: List[List[str]]
@@ -13,43 +26,28 @@ class Solution(object):
                 raise ValueError
         # Check rows
         for row in range(0,9):
-            s = set()
+            cells = []
             for col in range(0,9):
-                # invalid value
-                if ord(board[row][col]) < ord("1") and ord(board[row][col]) > ord("9") and board[row][col] != "":
-                    return False
-                # duplicate
-                if board[row][col] in s:
-                    return False
-                if board[row][col] != ".":
-                    s.add(board[row][col])
+                cells.append((row,col))
+            if not self.check_cells(cells, board):
+                return False
         # Check columns
         for col in range(0,9):
-            s = set()
+            cells = []
             for row in range(0,9):
-                # invalid value
-                if ord(board[row][col]) < ord("1") and ord(board[row][col]) > ord("9") and board[row][col] != "":
-                    return False
-                # duplicate
-                if board[row][col] in s:
-                    return False
-                if board[row][col] != ".":
-                    s.add(board[row][col])
+                cells.append((row,col))
+            if not self.check_cells(cells, board):
+                return False
         # Check 3x3 boxes
         for x in (0,3,6):
             for y in (0,3,6):
+                cells = []
                 # Check everything in each box
-                s = set()
                 for row in range(x,x+3):
                     for col in range(y,y+3):
-                        # invalid value
-                        if ord(board[row][col]) < ord("1") and ord(board[row][col]) > ord("9") and board[row][col] != "":
-                            return False
-                        # duplicate
-                        if board[row][col] in s:
-                            return False
-                        if board[row][col] != ".":
-                            s.add(board[row][col])
+                        cells.append((row,col))
+                if not self.check_cells(cells, board):
+                    return False
         return True
 
 
