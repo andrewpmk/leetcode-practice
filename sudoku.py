@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/valid-sudoku/
 # Time to get working solution 16 min 15 sec
 # Time to get more compact solution 23 min 24 sec
 # Time complexity O(n^2), space complexity O(n^2)
