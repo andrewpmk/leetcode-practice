@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/add-two-numbers/
-# Time: 30min
+# Time to solve: 30min
 
 # Definition for singly-linked list.
 class ListNode(object):
