@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/add-two-numbers/
 # Time to solve: 30min
+# Time complexity O(n)
+# Space complexity O(n)
 
 # Definition for singly-linked list.
 class ListNode(object):

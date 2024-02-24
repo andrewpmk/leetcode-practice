@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/reverse-integer/
 # Time to solve: 6 min 30 sec
+# Time complexity O(n)
+# Space complexity O(n)
 
 class Solution(object):
     def reverse_string(self, s: str) -> str:
